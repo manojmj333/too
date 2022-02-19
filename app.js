@@ -23,15 +23,15 @@ app.post("/",function(req,res){
     const icon= weatherData.weather[0].icon;
     const imageURL= "http://openweathermap.org/img/wn/"+icon+"@2x.png"
 
-    
-  })
-  
-  });
-  res.write("<html><h3> The weather is "+ des+ "</h3></html>")
+    res.write("<html><h3> The weather is "+ des+ "</h3></html>")
   res.write("<h1> The temperature in " + cityname+" is "+ temp + " degree celsius"+"</h1>")
   res.write("<img src="+imageURL+">")
 
   res.send();
+  })
+  
+  });
+  
 
 });
 
