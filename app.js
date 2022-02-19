@@ -14,7 +14,8 @@ app.post("/",function(req,res){
   const url = "https://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid="+appId+"&units=metric#"
   https.get(url,function(response){
   console.log(response.statusCode);
-
+   
+ 
   response.on("data",function(data){
     const weatherData = JSON.parse(data)
     const temp = weatherData.main.temp;
@@ -22,15 +23,18 @@ app.post("/",function(req,res){
     const icon= weatherData.weather[0].icon;
     const imageURL= "http://openweathermap.org/img/wn/"+icon+"@2x.png"
 
-    res.write("<html><h3> The weather is "+ des+ "</h3></html>")
-    res.write("<h1> The temperature in " + cityname+" is "+ temp + " degree celsius"+"</h1>")
-    res.write("<img src="+imageURL+">")
-
-    res.send();
+    
   })
-  })
+  
+  });
+  res.write("<html><h3> The weather is "+ des+ "</h3></html>")
+  res.write("<h1> The temperature in " + cityname+" is "+ temp + " degree celsius"+"</h1>")
+  res.write("<img src="+imageURL+">")
 
-})
+  res.send();
+
+});
+
 app.listen(3000,function(){
   console.log("Server running on port 3000..")
 })
