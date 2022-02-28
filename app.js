@@ -8,7 +8,7 @@ app.get("/",function(req,res){
 
 })
 
-app.get("/",function(req,res){
+app.post("/",function(req,res){
   const appId="1cdd0c873ec39f16a6992a73362ea303"
   const cityname= req.body.CityName
   const url = "https://api.openweathermap.org/data/2.5/weather?q="+cityname+"&appid="+appId+"&units=metric#"
